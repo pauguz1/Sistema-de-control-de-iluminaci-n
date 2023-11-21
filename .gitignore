@@ -3,3 +3,4 @@
 *.sqlite3
 *.pyc
 ./microservicio-1/.env/*
+./microservicio-2/.env/*
