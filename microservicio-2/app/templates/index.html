@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="contenedor-primario">
+        <h2>Lámpara</h2>
+        <div class="contenedor-slide">
+            <h2 class="texto-apagado">Apagado</h2>
+            <div onclick="slideLampara()" class="slide-off"></div>
+        </div>
+    </div>
+
+    <script>
+
+        function slideLampara(){
+            let contenedorSlide = document.querySelector('.contenedor-slide');
+            let textoSlide = contenedorSlide.children[0];
+            let slide = contenedorSlide.children[1];
+            // si el slide esta encendido entonces lo apagamos
+            if(slide.classList.contains('slide-on')== true){
+                slide.classList.remove('slide-on');
+                slide.classList.add('slide-off');
+                textoSlide.classList.remove('texto-encendido');
+                textoSlide.classList.add('texto-apagado');
+            }else{// si el slide esta apagado entonces lo encendemos
+                slide.classList.remove('slide-off');
+                slide.classList.add('slide-on');
+                textoSlide.classList.remove('texto-apagado');
+                textoSlide.classList.add('texto-encendido');
+            }
+        }
+
+    </script>
+    
+</body>
+</html>
