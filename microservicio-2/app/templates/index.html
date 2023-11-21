@@ -13,7 +13,7 @@
     <div class="contenedor-primario">
         <h2>Lámpara</h2>
         <div class="contenedor-slide">
-            <h2 class="texto-apagado">Apagado</h2>
+            <h2 class="texto-apagado">Apagada</h2>
             <div onclick="slideLampara()" class="slide-off"></div>
         </div>
     </div>
@@ -30,11 +30,13 @@
                 slide.classList.add('slide-off');
                 textoSlide.classList.remove('texto-encendido');
                 textoSlide.classList.add('texto-apagado');
+                textoSlide.innerHTML= 'Apagada';
             }else{// si el slide esta apagado entonces lo encendemos
                 slide.classList.remove('slide-off');
                 slide.classList.add('slide-on');
                 textoSlide.classList.remove('texto-apagado');
                 textoSlide.classList.add('texto-encendido');
+                textoSlide.innerHTML= 'Encendida';
             }
         }
 
