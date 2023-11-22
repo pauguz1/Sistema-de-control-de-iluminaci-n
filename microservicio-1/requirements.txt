@@ -1,2 +1,4 @@
-django==4.1.6
-channels==4.0.0
+npm init -y
+npm install ws
+
+

@@ -51,6 +51,7 @@
     font-size: var(--font-size2);
     font-family: var(--fuente);
     color: var(--text-color1);
+    user-select: none;
 }
 
 .contenedor-slide{
@@ -61,6 +62,7 @@
 .contenedor-slide h2{
     margin-left: 10px;
     margin-right: 10px;
+    user-select: none;
 }
 .texto-apagado{
     color:var(--color-gray) !important;
