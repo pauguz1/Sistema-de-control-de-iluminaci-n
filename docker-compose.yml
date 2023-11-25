@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  microservicio1:
+    container_name: microservicio1-websocket_lampara
+    build: ./microservicio-1
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./microservicio-1:/app
+    command: ["node", "websocket-server.js"]
+
+  microservicio2:
+    build: ./microservicio-2
+    container_name: microservicio2_web_lampara
+    ports:
+      - "80:8000"
+    volumes:
+      - ./microservicio-2:/app
+    command: ["python", "manage.py", "runserver", "0:8000"]
+  
