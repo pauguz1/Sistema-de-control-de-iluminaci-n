@@ -22,12 +22,12 @@ wss.on('connection', function connection(ws) {
       console.log(`Usuario suscrito al canal ${channel}`);
     } else if (data.type === 'message' && currentChannel) {
       // está extrayendo la propiedad content (1) del objeto data y asignándola a una variable llamada content (2)
-      //const { content: content } = data;
+      const { content: content } = data;
       const channelClients = channels[currentChannel];
       if (channelClients) {
         for (let client of channelClients) {
           if ( client.readyState === WebSocket.OPEN) {
-            client.send(JSON.stringify(data));// se manda el content con el contenido del data
+            client.send(JSON.stringify({content}));// se manda el content con el contenido del data
             //client.send(JSON.stringify({ sender: currentChannel, content }));// se manda el content con el contenido del data
           }
         }
