@@ -68,7 +68,7 @@
         */
         socketPeticionEstadoLampara.onopen = function() {
             socketPeticionEstadoLampara.send(JSON.stringify({ type: 'subscribe', channel: 'peticion_estado_lampara' }));
-            socketPeticionEstadoLampara.send(JSON.stringify({ type: 'message', message:'1' }));
+            socketPeticionEstadoLampara.send(JSON.stringify({ type: 'message', content:'1' }));
         };
 
 
@@ -98,9 +98,9 @@
             let slide = contenedorSlide.children[1];
             // si el slide esta encendido entonces lo apagamos
             if(slide.classList.contains('slide-on')== true){
-                socketControlLampara.send(JSON.stringify({ type: 'message', message:'0' }));
+                socketControlLampara.send(JSON.stringify({ type: 'message', content:'0' }));
             }else{// si el slide esta apagado entonces lo encendemos
-                socketControlLampara.send(JSON.stringify({ type: 'message', message:'1' }));
+                socketControlLampara.send(JSON.stringify({ type: 'message', content:'1' }));
             }
         }
         

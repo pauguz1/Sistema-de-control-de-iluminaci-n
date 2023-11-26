@@ -10,32 +10,32 @@
        --redondo1: 50px;
        --redondo2: 20px;
        --redondo3: 10px;
-    
+
        --text-color1: black;
        --text-color2: white;
-    
+
        --color-gray: #cfd0d1;
        --color-green: #43A047;
        --color-alert: #e90c0c;
-    
+
        --relleno: 15px;
-    
+
        --color-gradient: #cfd0d1;
        --fuente: 'Roboto', sans-serif;
-    
+
        --font-size1: 22px;
        --font-size2: 18px;
        --font-size3: 15px;
        --font-size4: 14px;
-    
+
        --duracion-modal-pop: 190ms;
-    
-    
+
+
        --box-shadow:0 0px 0px 0 var(--color-gradient), 0 0px 4px 0 var(--color-gradient);
        --box-shadow1: 0 0px 0px 0 var(--color-gradient), 0 0px 4px 0 #2f3238;
     }
 
-    
+
     .contenedor-primario{
        display: flex;
        justify-content: center;
@@ -60,7 +60,7 @@
        user-select: none;
     }
 
-    
+
     .contenedor-slide{
        display: flex;
        align-items: center;
@@ -129,7 +129,7 @@
 
 </style>
 <body>
-  
+
 
     <div class="contenedor-primario">
         <h2>Microntrolador</h2>
@@ -175,7 +175,7 @@
     // para suscribirnos al estado de la lampara (y cambiar el estado)
     socketEstadoLampara.onopen = function() {
         socketEstadoLampara.send(JSON.stringify({ type: 'subscribe', channel: 'estado_lampara' }));
-        socketEstadoLampara.send(JSON.stringify({ type: 'message', message:String(lampara) }));
+        socketEstadoLampara.send(JSON.stringify({ type: 'message', content:String(lampara) }));
     };
     // para suscribirnos al peticion_estado_lampara (para recibir peticiones del usuarios y mandar el estado de la lampara)
     socketPeticionEstadoLampara.onopen = function() {
@@ -191,8 +191,9 @@
     //escuchamos las peticiones de solicitud de destao de la lampara
     socketPeticionEstadoLampara.onmessage = function(event) {
         let data = JSON.parse(event.data);
+        console.log(data.content);
         if(data.content == '1'){
-            socketEstadoLampara.send(JSON.stringify({ type: 'message', message:String(lampara) }));
+            socketEstadoLampara.send(JSON.stringify({ type: 'message', content:String(lampara) }));
         }
     }
 
@@ -201,7 +202,7 @@
         let data = JSON.parse(event.data);
         //cambiamos el estado de la lampara por la que indico el usuario
         lampara = data.content;
-        socketEstadoLampara.send(JSON.stringify({ type: 'message', message:String(lampara) }));
+        socketEstadoLampara.send(JSON.stringify({ type: 'message', content:String(lampara) }));
     }
 
     //escuchamos el estado de la lampara
@@ -223,9 +224,9 @@
         let slide = contenedorSlide.children[1];
         // si el slide esta encendido entonces lo apagamos
         if(slide.classList.contains('slide-on')== true){
-            socketControlLampara.send(JSON.stringify({ type: 'message', message:'0' }));
+            socketControlLampara.send(JSON.stringify({ type: 'message', content:'0' }));
         }else{// si el slide esta apagado entonces lo encendemos
-            socketControlLampara.send(JSON.stringify({ type: 'message', message:'1' }));
+            socketControlLampara.send(JSON.stringify({ type: 'message', content:'1' }));
         }
     }
 
