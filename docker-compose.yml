@@ -1,20 +1,58 @@
 version: '3.8'
 services:
+
+  api_gateway_sistama_control_lampara:
+    container_name: api_gateway_sistama_control_lampara
+    image: nginx:latest
+    depends_on:
+      - servidor_microservicio_1
+      - servidor_microservicio_2
+    volumes:
+      - ./api_gateway/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "80:80"
+    networks:
+      - internal_network
+
+  servidor_microservicio_1:
+    container_name: servidor_microservicio_1
+    image: nginx:latest
+      
+    depends_on:
+      - microservicio1
+    volumes:
+      - ./microservicio-1/nginx.conf:/etc/nginx/nginx.conf
+      - ./microservicio-1:/app
+    networks:
+      - internal_network
+
+  servidor_microservicio_2:
+    container_name: servidor_microservicio_2
+    image: nginx:latest
+    depends_on:
+      - microservicio2
+    volumes:
+      - ./microservicio-2/nginx.conf:/etc/nginx/nginx.conf
+      - ./microservicio-2:/app
+    networks:
+      - internal_network
+
   microservicio1:
     container_name: microservicio1-websocket_lampara
     build: ./microservicio-1
-    ports:
-      - "8080:8080"
     volumes:
       - ./microservicio-1:/app
-    command: ["node", "websocket-server.js"]
+    networks:
+      - internal_network
 
   microservicio2:
     build: ./microservicio-2
     container_name: microservicio2_web_lampara
-    ports:
-      - "80:8000"
     volumes:
       - ./microservicio-2:/app
-    command: ["python", "manage.py", "runserver", "0:8000"]
+    networks:
+      - internal_network
   
+networks:
+  internal_network:
+    driver: bridge

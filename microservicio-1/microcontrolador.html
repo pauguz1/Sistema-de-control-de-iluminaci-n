@@ -164,12 +164,12 @@
 
     var lampara = 1;
     //------------------------------------ Instanciacion de los sockets
-    //para mandar el estado de la lampara
-    const socketEstadoLampara = new WebSocket('ws://localhost:8080');
+    //para mandar el estado de la lampara 
+    const socketEstadoLampara = new WebSocket('ws://localhost/microservicio1');
     //para escuchar las peticiones de los usuarios y mandar el estado de la lampara
-    const socketPeticionEstadoLampara = new WebSocket('ws://localhost:8080');
+    const socketPeticionEstadoLampara = new WebSocket('ws://localhost/microservicio1');
     //para recibir las acciones de los usuarios (encendido,apagado)
-    const socketControlLampara = new WebSocket('ws://localhost:8080');
+    const socketControlLampara = new WebSocket('ws://localhost/microservicio1');
 
     //---------------------------------------------------- Suscripcion a la cola de mensajes
     // para suscribirnos al estado de la lampara (y cambiar el estado)

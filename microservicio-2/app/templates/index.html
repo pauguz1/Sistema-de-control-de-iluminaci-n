@@ -38,9 +38,9 @@
         //const active = new WebSocket('ws://localhost:61623/');
 
         var hostname = window.location.hostname;
-        const socketEstadoLampara = new WebSocket('ws://'+hostname+':8080');
-        const socketPeticionEstadoLampara = new WebSocket('ws://'+hostname+':8080');
-        const socketControlLampara = new WebSocket('ws://'+hostname+':8080');
+        const socketEstadoLampara = new WebSocket('ws://'+hostname+'/microservicio1');
+        const socketPeticionEstadoLampara = new WebSocket('ws://'+hostname+'/microservicio1');
+        const socketControlLampara = new WebSocket('ws://'+hostname+'/microservicio1');
 
         // para despues de conectarnos al socket para ver estado de la lampara
         socketEstadoLampara.onopen = function() {

@@ -118,8 +118,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+
+
+# Ruta donde se recopilarán los archivos estáticos
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATIC_URL = 'static/'
+
+
 STATICFILES_DIRS = [
+    BASE_DIR / "app/static",  # Ruta para los archivos estáticos de 'app'
+]
+
+STATICFILES_DIRS += [
     BASE_DIR / "static",
 ]
 
@@ -127,3 +138,10 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+
+
+
+

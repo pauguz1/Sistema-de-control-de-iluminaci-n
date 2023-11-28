@@ -18,9 +18,9 @@ String obtenerJson(String jsonInfo,String clave){
   return  doc.as<JsonObject>()[clave];
 }
 
-const char* ssid = "Casita-2"; //Enter SSID
-const char* password = "guzman321"; //Enter Password
-const char* websockets_server_host = "192.168.1.14"; //Enter server adress
+const char* ssid = "UAZ-Alumnos"; //Enter SSID
+const char* password = ""; //Enter Password
+const char* websockets_server_host = "10.2.83.89"; //Enter server adress
 const uint16_t websockets_server_port = 8080; // Enter server port
 
 using namespace websockets;
