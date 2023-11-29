@@ -127,7 +127,7 @@ STATIC_URL = 'static/'
 
 
 STATICFILES_DIRS = [
-    BASE_DIR / "app/static",  # Ruta para los archivos estáticos de 'app'
+    os.path.join(BASE_DIR, 'app', 'static'),
 ]
 
 STATICFILES_DIRS += [
