@@ -39,7 +39,6 @@ ubiacion del simulador
 ```
 
 <br>
-<br>
 
 ### Visita mi página web para que veas mas sobre mis proyectos y mas sobre mi
 
