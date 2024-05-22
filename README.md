@@ -43,4 +43,4 @@ ubiacion del simulador
 
 ### Visita mi página web para que veas mas sobre mis proyectos y mas sobre mi
 
-<a href="https://pauguz1.github.io/Paul_Santana/"><h1 style="color:#1B8B9A">Web Paul Santana</h1></a>
+# [Web Paul Santana](https://pauguz1.github.io/Paul_Santana/)
