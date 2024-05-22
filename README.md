@@ -37,3 +37,10 @@ Para ejecutar un microcontrolador simulado solo debes ejecutar el archivo microc
 ubiacion del simulador
 ./microservicio-1/microcontrolador.html
 ```
+
+<br>
+<br>
+
+### Visita mi página web para que veas mas sobre mis proyectos y mas sobre mi
+
+<a href="https://pauguz1.github.io/Paul_Santana/"><h1 style="color:#1B8B9A">Web Paul Santana</h1></a>
