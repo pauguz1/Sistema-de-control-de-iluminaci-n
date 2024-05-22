@@ -1,7 +1,7 @@
 # Sistema-de-control-de-iluminacion⚡
 Sistema de control de iluminación utilizando microservicios
 
-<h1 style="color:#E2A632">Microservicios</h1>
+# Microservicios
 
 # microservicio-1
 Es el encargado de la redireccion de los mensajes entre los usuarios
@@ -13,7 +13,7 @@ una pagina web
 
 <br>
 
-<h1 style="color:#1B8B9A">Instalación </h1>
+# Instalación
 
 ### 1 Construir la imagen de docker
 ```docker
